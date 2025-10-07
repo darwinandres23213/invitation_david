@@ -1,0 +1,1337 @@
+/* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF69B4 0%, #FF1493 25%, #FFB6C1 50%, #FFC0CB 75%, #FFE4E1 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Fondo con rosas animadas */
+.rose-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rose {
+    position: absolute;
+    font-size: 3rem;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.3;
+}
+
+.rose1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.rose2 {
+    top: 20%;
+    right: 15%;
+    animation-delay: 1s;
+}
+
+.rose3 {
+    bottom: 30%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.rose4 {
+    bottom: 15%;
+    right: 25%;
+    animation-delay: 3s;
+}
+
+.rose5 {
+    top: 50%;
+    left: 5%;
+    animation-delay: 4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Tarjeta principal */
+.invitation-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 245, 0.9));
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3), 0 0 40px rgba(255, 20, 147, 0.2);
+    padding: 12px 18px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    animation: slideIn 1.5s ease-out, cardFloat 6s ease-in-out infinite;
+    backdrop-filter: blur(20px);
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    min-height: 120px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.invitation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #FF69B4, #FF1493, #FFB6C1, #FFC0CB);
+    border-radius: 30px;
+    padding: 4px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: -1;
+    animation: borderGlow 4s ease-in-out infinite;
+}
+
+.invitation-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 35px 70px rgba(255, 105, 180, 0.3);
+    border-color: #FF1493;
+    background: rgba(255, 255, 255, 0.98);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.9rem;
+    color: #C71585;
+    margin-bottom: 6px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(255, 105, 180, 0.3);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    animation: titleGlow 3s ease-in-out infinite;
+    position: relative;
+    line-height: 1;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.1), rgba(255, 20, 147, 0.1));
+    border-radius: 20px;
+    z-index: -1;
+    animation: titleAura 4s ease-in-out infinite;
+}
+
+.rose-decoration {
+    font-size: 2.8rem;
+    animation: spin 3s linear infinite;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-content {
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2rem;
+    color: #8B008B;
+    margin: 0;
+    line-height: 1.2;
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    animation: messageFloat 4s ease-in-out infinite;
+}
+
+.date-section {
+    background: linear-gradient(135deg, #FF69B4, #FF1493, #FFB6C1);
+    padding: 5px 10px;
+    border-radius: 18px;
+    margin: 0;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.date-section h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: questionPulse 2.5s ease-in-out infinite;
+    line-height: 1.1;
+}
+
+.date-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.day {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #FFFFFF;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    padding: 6px 16px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: dayGlow 3s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.time {
+    font-size: 1.8rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Campo de rosas */
+.rose-field {
+    margin: 0;
+    padding: 4px 10px;
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.2), rgba(255, 20, 147, 0.15));
+    border-radius: 18px;
+    border: 2px solid rgba(255, 105, 180, 0.4);
+    position: relative;
+}
+
+.rose-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 2px 0;
+}
+
+.rose-emoji {
+    font-size: 2rem;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.rose-emoji:nth-child(1) { animation-delay: 0s; }
+.rose-emoji:nth-child(2) { animation-delay: 0.2s; }
+.rose-emoji:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Elementos decorativos */
+.decorative-line {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #FF69B4, #FF1493);
+    margin: 10px auto;
+    border-radius: 2px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.decorative-elements {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    display: flex;
+    gap: 5px;
+}
+
+.small-rose {
+    font-size: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.small-rose:nth-child(1) { animation-delay: 0.5s; }
+.small-rose:nth-child(2) { animation-delay: 1s; }
+
+/* Elementos románticos adicionales */
+.hearts-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.heart {
+    font-size: 1.2rem;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+.heart:nth-child(1) { animation-delay: 0s; }
+.heart:nth-child(2) { animation-delay: 0.3s; }
+.heart:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.romantic-text {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255, 105, 180, 0.3);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 105, 180, 0.5);
+}
+
+.romantic-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #C71585;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.romantic-message {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(255, 105, 180, 0.4);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 105, 180, 0.6);
+}
+
+.romantic-message p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #C71585;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Mensaje personalizado */
+.personal-message {
+    margin: 4px 0;
+    padding: 4px 10px;
+    background: linear-gradient(45deg, rgba(255, 105, 180, 0.1), rgba(255, 20, 147, 0.05));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 105, 180, 0.2);
+}
+
+.personal-message p {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #C71585;
+    font-style: italic;
+    font-weight: 500;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    animation: personalMessageGlow 3s ease-in-out infinite;
+}
+
+/* Detalles de tiempo */
+.time-details {
+    margin-top: 5px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.time-details p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    color: #C71585;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Detalles especiales */
+.special-details {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    min-width: 80px;
+    transition: transform 0.3s ease;
+}
+
+.detail-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.detail-icon {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.detail-item:nth-child(1) .detail-icon { animation-delay: 0s; }
+.detail-item:nth-child(2) .detail-icon { animation-delay: 0.3s; }
+.detail-item:nth-child(3) .detail-icon { animation-delay: 0.6s; }
+
+.detail-text {
+    font-size: 0.8rem;
+    color: #C71585;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Elementos interactivos */
+.interactive-elements {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.click-me, .hover-effect, .magic-button {
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    text-align: center;
+    min-width: 200px;
+}
+
+.click-me {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.click-me:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+.hover-effect {
+    background: linear-gradient(45deg, #FF69B4, #FF1493);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.hover-effect:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+    animation: rainbow 1s ease-in-out infinite;
+}
+
+.magic-button {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #C71585;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    font-weight: bold;
+}
+
+.magic-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+    animation: magic 0.5s ease-in-out infinite;
+}
+
+.click-text, .hover-text, .magic-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+@keyframes rainbow {
+    0%, 100% { filter: hue-rotate(0deg); }
+    50% { filter: hue-rotate(180deg); }
+}
+
+@keyframes magic {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-50px) scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes soundWave {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes magicAppear {
+    0% {
+        transform: translate(-50%, -50%) scale(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        text-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 30px rgba(255, 105, 180, 0.8), 0 0 40px rgba(255, 105, 180, 0.6);
+    }
+}
+
+/* Botones */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-yes {
+    background: linear-gradient(45deg, #4CAF50, #45a049, #66BB6A);
+    color: white;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.btn-yes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.btn-maybe {
+    background: linear-gradient(45deg, #FF9800, #F57C00, #FFB74D);
+    color: white;
+}
+
+.btn-maybe:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 152, 0, 0.4);
+}
+
+/* Mensaje de respuesta */
+.response-message {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.response-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.response-yes {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.response-maybe {
+    background: linear-gradient(45deg, #FF9800, #F57C00);
+    color: white;
+}
+
+/* Partículas flotantes */
+.particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FF69B4;
+    border-radius: 50%;
+    animation: particleFloat 8s linear infinite;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    animation-delay: 4s;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.particle:nth-child(5) {
+    left: 90%;
+    animation-delay: 1s;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Estilos para imágenes reales de Hello Kitty y Spider-Man */
+.floating-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    animation: romanticFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.3));
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.floating-image:hover {
+    transform: scale(1.2) rotate(10deg);
+    filter: drop-shadow(0 6px 12px rgba(255, 105, 180, 0.5));
+}
+
+.hello-kitty-img {
+    animation: helloKittyRomantic 3s ease-in-out infinite;
+}
+
+.spiderman-img {
+    animation: spidermanRomantic 4s ease-in-out infinite;
+}
+
+.title-image {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin: 0 8px;
+    vertical-align: middle;
+    animation: titleBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.4));
+    display: inline-block;
+}
+
+.hello-kitty-title {
+    animation-delay: 0s;
+}
+
+.spiderman-title {
+    animation-delay: 0.5s;
+}
+
+.decoration-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    animation: decorationSpin 3s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+    display: inline-block;
+}
+
+.inline-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin: 0 8px;
+    animation: inlineWiggle 2s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+    display: inline-block;
+}
+
+.small-image {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    animation: smallBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 1px 2px rgba(255, 105, 180, 0.3));
+    display: inline-block;
+}
+
+.field-image {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    animation: fieldDance 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(255, 105, 180, 0.3));
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.field-image:hover {
+    transform: scale(1.3) rotate(15deg);
+    filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.5));
+}
+
+
+.hello-kitty::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 8px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: rotate(-20deg);
+}
+
+.hello-kitty::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 8px;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    border: 2px solid #333;
+    transform: rotate(20deg);
+}
+
+.hello-kitty .bow {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 15px;
+    background: #FF69B4;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: bowWiggle 2s ease-in-out infinite;
+}
+
+.hello-kitty .bow::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #FF1493;
+    border-radius: 50%;
+}
+
+.hello-kitty .eyes {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+}
+
+.hello-kitty .eyes::before,
+.hello-kitty .eyes::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.hello-kitty .eyes::before {
+    left: 2px;
+}
+
+.hello-kitty .eyes::after {
+    right: 2px;
+}
+
+.hello-kitty .nose {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 3px;
+    background: #FFD700;
+    border-radius: 50%;
+}
+
+.hello-kitty .whiskers {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+}
+
+.hello-kitty .whiskers::before,
+.hello-kitty .whiskers::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 1px;
+    background: #333;
+    top: 0;
+}
+
+.hello-kitty .whiskers::before {
+    left: 0;
+    transform: rotate(-15deg);
+}
+
+.hello-kitty .whiskers::after {
+    right: 0;
+    transform: rotate(15deg);
+}
+
+/* Animaciones para Hello Kitty */
+
+@keyframes helloKittyBounce {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(2deg);
+    }
+}
+
+@keyframes bowWiggle {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+/* Spider-Man CSS Art */
+.spiderman {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: #FF0000;
+    border-radius: 50%;
+    margin: 0 5px;
+    border: 2px solid #000;
+    animation: spidermanSwing 4s ease-in-out infinite;
+}
+
+.spiderman::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: #0000FF;
+    border-radius: 50% 50% 0 0;
+}
+
+.spiderman .mask {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 20px;
+    background: #FF0000;
+    border-radius: 50%;
+}
+
+.spiderman .eyes {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 8px;
+    animation: spidermanEyes 2s ease-in-out infinite;
+}
+
+.spiderman .eyes::before,
+.spiderman .eyes::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+.spiderman .eyes::before {
+    left: 1px;
+}
+
+.spiderman .eyes::after {
+    right: 1px;
+}
+
+.spiderman .spider {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+}
+
+.spiderman .spider::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 4px;
+    background: #FF0000;
+    border-radius: 50%;
+}
+
+/* Web decoration */
+.web-decoration {
+    display: inline-block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    animation: webSpin 6s linear infinite;
+}
+
+.web-decoration::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+.web-decoration::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+/* Animaciones para Spider-Man */
+
+@keyframes spidermanSwing {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-3px) rotate(-2deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+}
+
+@keyframes spidermanEyes {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+@keyframes webSpin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Animaciones románticas para las imágenes reales */
+@keyframes romanticFloat {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.3));
+    }
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+        filter: drop-shadow(0 8px 16px rgba(255, 105, 180, 0.5));
+    }
+}
+
+@keyframes helloKittyRomantic {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 4px 8px rgba(255, 105, 180, 0.3));
+    }
+    25% {
+        transform: translateY(-10px) rotate(-2deg) scale(1.05);
+        filter: drop-shadow(0 6px 12px rgba(255, 105, 180, 0.4));
+    }
+    75% {
+        transform: translateY(-5px) rotate(2deg) scale(1.02);
+        filter: drop-shadow(0 5px 10px rgba(255, 105, 180, 0.35));
+    }
+}
+
+@keyframes spidermanRomantic {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+        filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.3));
+    }
+    33% {
+        transform: translateY(-12px) rotate(-3deg) scale(1.08);
+        filter: drop-shadow(0 7px 14px rgba(255, 20, 147, 0.4));
+    }
+    66% {
+        transform: translateY(-8px) rotate(3deg) scale(1.03);
+        filter: drop-shadow(0 6px 12px rgba(255, 20, 147, 0.35));
+    }
+}
+
+@keyframes titleBounce {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.1);
+    }
+}
+
+@keyframes decorationSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    50% {
+        transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+@keyframes inlineWiggle {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(-5deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(5deg) scale(1.05);
+    }
+}
+
+@keyframes smallBounce {
+    0%, 100% {
+        transform: translateY(0px) scale(1);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.1);
+    }
+}
+
+@keyframes fieldDance {
+    0%, 100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-3deg) scale(1.05);
+    }
+    50% {
+        transform: translateY(-4px) rotate(0deg) scale(1.02);
+    }
+    75% {
+        transform: translateY(-6px) rotate(3deg) scale(1.03);
+    }
+}
+
+/* Animaciones románticas especiales */
+@keyframes titleAura {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
+}
+
+@keyframes messageFloat {
+    0%, 100% {
+        transform: translateY(0px);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        transform: translateY(-3px);
+        text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.3);
+    }
+}
+
+@keyframes personalMessageGlow {
+    0%, 100% {
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        color: #C71585;
+    }
+    50% {
+        text-shadow: 2px 2px 6px rgba(255, 105, 180, 0.4), 0 0 15px rgba(255, 105, 180, 0.2);
+        color: #FF1493;
+    }
+}
+
+@keyframes questionPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: scale(1.02);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+}
+
+@keyframes dayGlow {
+    0%, 100% {
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+}
+
+@keyframes cardFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes borderGlow {
+    0%, 100% {
+        opacity: 0.8;
+        filter: hue-rotate(0deg);
+    }
+    50% {
+        opacity: 1;
+        filter: hue-rotate(20deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .invitation-card {
+        padding: 15px;
+        margin: 10px;
+        max-width: 90%;
+    }
+    
+    .title {
+        font-size: 2.2rem;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .floating-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .title-image {
+        width: 45px;
+        height: 45px;
+        margin: 0 10px;
+    }
+    
+    .decoration-image {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .inline-image {
+        width: 30px;
+        height: 30px;
+        margin: 0 5px;
+    }
+    
+    .small-image {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .field-image {
+        width: 35px;
+        height: 35px;
+    }
+}

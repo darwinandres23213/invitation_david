@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Imágenes</title>
+    <style>
+        body {
+            background: pink;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .test-image {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border: 2px solid #FF69B4;
+            border-radius: 10px;
+            object-fit: contain;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Test de Carga de Imágenes</h1>
+    
+    <h2>Imágenes con rutas relativas:</h2>
+    <img src="img/hello_kitty_2.png" alt="Hello Kitty 2" class="test-image">
+    <img src="img/hello_kitty_3.png" alt="Hello Kitty 3" class="test-image">
+    <img src="img/spiderman_1.png" alt="Spider-Man 1" class="test-image">
+    <img src="img/spider_man_2.png" alt="Spider-Man 2" class="test-image">
+    
+    <h2>Imágenes con rutas absolutas:</h2>
+    <img src="file:///C:/Users/DELL/Documents/invitación_Vale/img/hello_kitty_2.png" alt="Hello Kitty 2" class="test-image">
+    <img src="file:///C:/Users/DELL/Documents/invitación_Vale/img/hello_kitty_3.png" alt="Hello Kitty 3" class="test-image">
+    <img src="file:///C:/Users/DELL/Documents/invitación_Vale/img/spiderman_1.png" alt="Spider-Man 1" class="test-image">
+    <img src="file:///C:/Users/DELL/Documents/invitación_Vale/img/spider_man_2.png" alt="Spider-Man 2" class="test-image">
+    
+    <script>
+        // Verificar si las imágenes se cargan
+        document.querySelectorAll('img').forEach((img, index) => {
+            img.onload = function() {
+                console.log(`Imagen ${index + 1} cargada correctamente: ${img.src}`);
+            };
+            img.onerror = function() {
+                console.error(`Error cargando imagen ${index + 1}: ${img.src}`);
+                this.style.border = '3px solid red';
+                this.alt = 'ERROR: ' + this.alt;
+            };
+        });
+    </script>
+</body>
+</html>
